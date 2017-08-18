@@ -1,0 +1,83 @@
+<html>
+    <head>
+      <title>My page</title>
+    </head>
+    <body>
+         <div class="container col-9">
+ <!--main-->
+<h3 class="mypage-h3">My page</h2>
+<p style="color:#5D5D5D; letter-spacing: 3px;">회원 정보 입력</p>
+<hr>
+<div class="edit-content">
+<div class="avatar-img"  style="float:left">
+<img src="<%=current_user.avatar.url%>"/>
+</div>
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <p><%= devise_error_messages! %></p>
+  <br />
+  <div class="field">
+    <%= f.label :email %> &nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+  <div class="field">
+    <%= f.label :name %> &nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password %> &nbsp;   
+    
+    <%= f.password_field :password, autocomplete: "off" %>
+    <% if @minimum_password_length %>
+    <br>
+    <p>최소<em><%= @minimum_password_length %>자</em> 이상, 비밀번호 변경을 원치 않을 시 빈칸으로 남겨주세요.</p>
+      <br />
+  
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %> &nbsp;
+    
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> &nbsp;&nbsp;
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+  
+  <div class="field">
+    
+    <%= f.file_field :avatar %>
+    
+  </div>
+
+  <div class="actions">
+    <button type="Update" class="btn btn-outline-secondary">edit</button>
+  </div>
+<% end %>
+
+<br />
+<br />
+</div>
+<div class="edit-bottom">
+<h3 style="color:#5D5D5D; letter-spacing: 3px;">Cancel my account</h3>
+<form class="button_to" method="post" action="/users">
+  <input type="hidden" name="_method" value="delete">
+  <input class="btn btn-outline-warning" data-confirm="Are you sure?" type="submit" value="Cancel my account">
+  <input type="hidden" name="authenticity_token" value="gY2tSlpqpwxm1l/4qir/fpLVn3rLzKnNzglm0e7tvaX53OCOxq+LI0ZkaNY5RHmGDdV9/F2JEO/2xVYmqT+Bxg==">
+</form>
+<br>
+<div class="mypage-a"><%= link_to "Back", :back %></div>
+</div>
+<hr>
+</div>
+  </body>
+</html>

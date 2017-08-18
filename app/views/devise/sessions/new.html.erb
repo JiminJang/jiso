@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="container col-9">
+      <div class="index-content">
+<h3>Log in</h3>
+</div>
+<hr>
+<br/>
+<div class="login-content">
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email%><br />
+    <input autofocus="autofocus" type="email" value="" name="user[email]" id="user_email" class="form-control">
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <input autocomplete="off" type="password" class="form-control" name="user[password]" id="user_password">
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <input type="submit" class="btn btn-outline-secondary"  name="commit" value="Log in">
+  </div>
+<% end %>
+
+<br/>
+<%= render "devise/shared/links" %>
+
+<a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    	  <div class="modal-dialog">
+				<div class="loginmodal-container">
+					<h2>Login</h2><br>
+				 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email%><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+
+<br/>
+<%= render "devise/shared/links" %>
+	
+
+				</div>
+			</div>
+		  </div>
+
+      </div>
+      </div>
+      
+    </body>
+ </html>

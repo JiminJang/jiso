@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>REVIEW</title>
+    </head>
+    <body>
+        <div class="container col-9">  
+            <!-- index content -->
+            <div class="index-content col-12">
+                <div class="">
+                <h3>REVIEW 게시판</h3>
+            
+                <hr>
+                <br>
+                    <div class="card-group review-container" >
+                        <% @reviews.each do |p| %>
+                            <div class="review-post col-2">
+                                <a href="/reviews/show/<%=p.id%>"><img src="<%=p.image.url %>" class="review-postImg" alt="Card image cap" onerror=this.src="../assets/10.jpg"></a>
+                                <br>
+                                <a href="/reviews/show/<%=p.id%>" style="font-size:0.8em;"><%= p.title %></a>
+                                <br>
+                                <div class="review-profile">   
+                                    <img src="<%=p.user.avatar.url%>" class="review-avatarImg" onerror="this.src="../assets/10.jpg">
+                                    <p style="font-size:0.8em;">
+                                    writer | <%=p.user.name%><br>
+                                    별점 | <%=p.star%><br>
+                                    좋아요 | <%=p.upcount%>
+                                    </p>
+                                </div>    
+                            </div>  
+                           
+                        <% end %>
+                    </div>
+            
+            </div>
+                <hr>
+                <!--글쓰기 버튼-->
+                <form action="/reviews/new" style="float:left;">
+                    <button type="submit" class="btn btn-secondary btn-sm">write</button>
+                </form>
+                <!--pagination-->
+                <div class="pagination">
+                    <%= will_paginate @reviews %>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+

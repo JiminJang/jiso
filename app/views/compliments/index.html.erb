@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>칭찬합시다!</title>
+    </head>
+  
+    <body>
+        <div class="container col-9">
+            <!-- index content -->
+            <div class="compliment-content">
+                <h3>칭찬합시다!</h3>
+                <hr>
+                <br>
+                <div class="comp-input" style="margin-left:auto; margin-right:auto;">
+                <form action="/compliments/create" method="POST" enctype="multipart/form-data">
+                    <input type="text" name="title" class="form-control form-control-sm" id="titlearea" placeholder="칭찬할 직원을 적어주세요">
+                    <br>
+                    <textarea name="content" placeholder="내용을 적어주세요" class="form-control" id="contentarea tippost_content" rows="5"></textarea><br>
+                    <input type="submit" value="등록" class="btn btn-secondary btn-sm">
+                </form>
+                <br>
+                </div>
+                <hr>
+                <br>
+                <% @compliments.each do |c| %>
+                <div class="compliment-post">
+                    <div style="display:table">
+                        <div style="display:table-row">
+                            <img src="<%=c.user.avatar.url%>" class="avatarImg">
+                        
+                        
+                    <div class="comp-title" style="vertical-align:top; font-size:1.1em;">
+                        <p><%= c.title %></p>
+                    
+                    <div style="vertical-align:bottom; font-size:0.7em;">
+                        <%=c.user.name %>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <br>
+                    <div class="comp-content">
+                        <p style="padding:0.3em;"><%= c.content %></p>
+                    </div>
+                    <% if user_signed_in? %>
+                        <% if current_user.can_delete?(c)%>
+                            <form action="/compliments/destroy/<%=c.id%>" method="POST">
+                                <button type="submit" class="btn btn-secondary btn-sm" data-confirm="글을 삭제합니다">삭제</button>
+                            </form>
+                        <%end%>
+                    <%end%>
+
+                <br>
+                </div>
+                <%end%>
+            </div>
+            <hr>
+            <div class="comp-pagination" style="float:right">
+               <%= will_paginate @compliments %>
+           </div>
+            
+        </div>
+    </body>
+</html>

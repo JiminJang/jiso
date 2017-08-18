@@ -1,0 +1,614 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900');
+body{
+     font-family: 'Lato', sans-serif;
+}
+.container{
+     margin-top: 3em;
+     margin-bottom: 3em;
+}
+.header{
+     height: 2.6em;
+     float: left;
+     margin-left: auto;
+     margin-right: auto;
+}
+.header a:hover{
+    text-decoration: none;
+}
+.header a:active{
+    text-decoration: none;
+}
+.header h1{
+    font-size: 2rem;
+    font-weight: 900;
+    color: black;
+}
+.headerRight{
+     float: right;
+}
+.headerRight p{
+     text-align: center;
+     margin-bottom: 0;
+     font-size: 0.8em;
+}
+.headerRight ul{
+     font-size: 0.8em;
+     float: right;
+     padding-left: 0.5em;
+}
+.headerRight ul li{
+    display: inline;
+    list-style: none;
+    margin-right: 1em;
+}
+.subMenu li a{
+    letter-spacing: -2px;
+}
+.slideImage{
+    height: 600px;
+}
+
+/* a 태그 스타일 */
+.headerRight a:link{
+    color: RGB(93,93,93);
+    text-decoration: none;
+}
+.headerRight a:visited{
+    color: RGB(93,93,93);
+    text-decoration: none;
+}
+.headerRight a:hover{
+    color: RGB(140,140,140);
+    text-decoration: none;
+}
+.headerRight a:active{
+    color: RGB(140,140,140);
+    text-decoration: none;
+}
+
+/*슬라이드 이미지*/
+.slide{
+    margin-top: 2em;
+    margin-bottom: 4em;
+}
+.linkImg img {
+    width: 100%;
+}
+.linkImg img:hover{
+    opacity:0.5;
+}
+
+/*카드 스타일*/
+.cardWrapper{
+ 
+}
+.card{
+    float: left;
+    height: 26em;
+    font-size: 0.8em;
+    color: #8b8b8b;
+    margin-bottom: 3em;
+}
+.card{
+    margin-right:3%;
+    margin-left: 5%;
+ 
+}
+.card:hover{
+    border: 1px solid #BDBDBD;
+}
+card-img-top{
+    height:50%;
+}
+.card img{
+    width: 80%;
+    height: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5em;
+}
+card-block{
+    height: 50%;
+}
+.card-block .avatarImg{
+    width: 4em;
+    height: 4em;
+    float: left;
+    margin-top: 0.5em;
+    border-radius: 50%;
+
+}
+.card-block p{
+    display: block;
+}
+.cardContent{
+    margin-right: auto;
+    margin-left: auto;
+    width: 12em;
+}
+.card-text{
+    float: right;
+    margin-top: 0.8em;
+}
+#h5Style{
+    clear: both;
+    padding-top: 2.5em;
+    margin-bottom:1.5em;
+    color:#5D5D5D; 
+    font-size:1em;
+    letter-spacing: 3px;
+}
+/*modal*/
+.modal-content .avatarImg{
+    width: 4em;
+    height: 4em;
+}
+.modal-image{
+    width:25em;
+    height: 20em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3em;
+}
+.profile-wrapper{
+    width: 25em;
+    border: solid 1px #BDBDBD;
+    color: #5D5D5D;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.modal-title{
+    font-weight:bold; 
+    font-size:1.2em;
+    margin-bottom: 1em;
+}
+.modal-contentarea{
+    font-size:0.5em;
+}
+/*로그인*/
+.login{
+    clear: both;
+}
+
+
+/*index*/
+th{
+    text-align: center;
+}
+
+.index-content{
+    text-align:left; 
+    color:#5D5D5D;
+}
+.index-content h3{
+   text-align:left; 
+   margin-top:2em; 
+   margin-left:1em; 
+   margin-bottom:1.5em; 
+   color:#5D5D5D; 
+   font-size: 1.3em;
+   letter-spacing: 3px;
+}
+.index-content h5{
+    text-align:center;
+    color:#5D5D5D; 
+    font-size: 1em;
+    letter-spacing: 3px;
+   font-weight: 700;
+}
+.index-content a:link{
+    color: RGB(93,93,93);
+    text-decoration: none;
+
+}
+.index-content a:visited{
+    color: RGB(93,93,93);
+    text-decoration: none;
+
+}
+.index-content a:hover{
+    color: RGB(140,140,140);
+    text-decoration: none;
+
+}
+.index-content a:active{
+    color: RGB(140,140,140);
+    text-decoration: none;
+}
+.index-content a, td{
+    font-size: 0.9em;
+}
+.category{
+    
+    border: solid 1px #BDBDBD;
+    color: #5D5D5D;
+
+}
+.category h4{
+    font-size: 1em;
+    letter-spacing: 3px;
+    color:#5D5D5D;
+}
+.category a{
+    font-size: 0.8em;
+    letter-spacing: 2px;
+}
+.category a:link{
+    color: RGB(93,93,93);
+    text-decoration: none;
+
+}
+.category a:visited{
+    color: RGB(93,93,93);
+    text-decoration: none;
+
+}
+.category a:hover{
+    color: RGB(140,140,140);
+    text-decoration: none;
+
+}
+.category a:active{
+    color: RGB(140,140,140);
+    text-decoration: none;
+}
+.index-content .pagination {
+    float: right;
+    letter-spacing: 2px;
+}
+.pagination .current{
+    font-style: normal;
+    font-weight: 600;
+}
+.search{
+    width: 18em;
+    margin-top: 5em;
+    margin-left:auto;
+    margin-right:auto;
+}
+.index-search{
+    width: 13em;
+    display:inline;
+}
+.search button{
+    display: inline;
+}
+/*show*/
+.show-content img{
+    width: 20em;
+    height: 20em;
+    margin-top: 2em;
+}
+.show-content h3{
+   text-align:left; 
+   margin-top:2em; 
+   margin-left:1em; 
+   margin-bottom:1.5em; 
+   color:#5D5D5D; 
+    font-size: 1.3em;
+   letter-spacing: 3px;
+}
+.show-top1{
+    color:#5D5D5D; 
+    border-top: solid 1px gray; 
+    border-bottom: solid 1px gray; 
+    padding:0.5em; 
+    text-align:left;
+    margin-bottom: 0.4em;
+}
+.show-top2{
+    color:#5D5D5D; 
+    border-bottom: solid 1px gray; 
+    padding-bottom:0.5em; 
+    padding-left:0.7em; 
+    padding-right:0.7em; 
+    text-align:left;
+    margin-bottom: 0.4em;
+}
+/*comment*/
+.show-comment .avatarImg{
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+    margin-right: 2em;
+}
+.show-comment{
+    margin-top: 4em;
+}
+.comment{
+    margin-left: 2em;
+    margin-top: 1.5em;
+    margin-bottom: 2em;
+    
+ 
+}
+.show-comment a:link{
+      color: RGB(93,93,93);
+    text-decoration: none;
+    
+}
+
+/*edit*/
+.edit-content{
+    text-align: left;
+    margin-right: auto;
+    margin-left: auto;
+}
+.mypage-h3{
+    text-align:left; 
+    margin-top:2em; 
+    margin-left:3em;
+    margin-bottom:4em; 
+    color:#5D5D5D;
+   letter-spacing: 3px;
+}
+.avatar-img img{
+     width:20em; 
+     height:20em;
+     margin: 3em;
+}
+.field{
+    margin-bottom: 0.5em;
+}
+.field p{
+    font-size: 0.8em;
+    display: inline;
+}
+.field em{
+    color:red;
+}
+.actions{
+
+    margin-top: 3em;
+}
+.edit-bottom{
+    text-align:center;
+    margin-top: 5em;
+    
+}
+
+/*my post*/
+.mypage-content h3{
+    text-align:left; 
+    margin-top:3em; 
+    margin-left:3em;
+    margin-bottom:1em; 
+    color:#5D5D5D;
+}
+
+.mypage-content a:link{
+    color: RGB(93,93,93);
+    text-decoration: none;
+
+}
+.mypage-content a:visited{
+    color: RGB(93,93,93);
+    text-decoration: none;
+
+}
+.mypage-content a:hover{
+    color: RGB(140,140,140);
+    text-decoration: none;
+
+}
+.mypage-content a:active{
+    color: RGB(140,140,140);
+    text-decoration: none;
+}
+
+
+/*new*/
+.new-content{
+    margin-left:auto; 
+    margin-right:auto; 
+    width:70%;
+}
+.new-content .input-label{
+    display:table;   
+    letter-spacing: 3px;
+}
+#titlearea, #contentarea{
+    display:table;
+}
+#img_prev{
+    margin-top:2em;    
+    letter-spacing: 3px;
+}
+
+/*review*/
+.review-container{
+    width:100%;
+}
+.review-post{
+    margin-left: 4%;
+    margin-right: 3%;
+
+}
+.review-postImg{
+    width: 11em; 
+    height:10em; 
+    margin-bottom:1em;
+    
+}
+.review-profile{
+    width: 10em;
+    margin-top: 0.7em;
+}
+.review-avatarImg{
+    width: 3em;
+    height: 3em;
+    float: left;
+    margin-top: 0.5em;
+    margin-right: 0.8em;
+    border-radius: 50%;
+}
+/*회원정보수정*/
+.mypage-a a:link{
+    color: RGB(93,93,93);
+    text-decoration: none;
+
+}
+.mypage-a a:visited{
+    color: RGB(93,93,93);
+    text-decoration: none;
+
+}
+.mypage-a a:hover{
+    color: RGB(140,140,140);
+    text-decoration: none;
+
+}
+.mypage-a a:active{
+    color: RGB(140,140,140);
+    text-decoration: none;
+}
+
+/*칭찬 게시판*/
+.compliment-content{
+
+    color:#5D5D5D;
+}
+.compliment-content h3{
+    text-align:left; 
+    margin-top:2em; 
+    margin-left:1em; 
+    margin-bottom:1.5em; 
+    font-size: 1.3em;
+    letter-spacing: 3px;
+}
+.compliment-content .avatarImg{
+    width: 4em;
+    height: 4em;
+    margin-right: 2em;
+    display: table-cell;
+
+}
+.compliment-post{
+    text-align: left;
+    width: 45em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.compliment-post .comp-title{
+    display: table-cell;
+
+    
+}
+.comp-content{
+    width: 45em;
+    margin-bottom: 0.7em;
+    border: solid 1px #BDBDBD;
+    color: #5D5D5D;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.compliment-content #titlearea{
+    width: 56em;
+        margin-left:auto; 
+    margin-right:auto;
+}
+.compliment-content textarea{
+    width: 50em;
+        margin-left:auto; 
+    margin-right:auto;
+}
+.comp-pagination{
+    letter-spacing: 2px;
+    
+}
+.comp-pagination a:link{
+    color: RGB(93,93,93);
+    text-decoration: none;
+
+}
+.comp-pagination a:visited{
+    color: RGB(93,93,93);
+    text-decoration: none;
+
+}
+.comp-pagination a:hover{
+    color: RGB(140,140,140);
+    text-decoration: none;
+
+}
+.comp-pagination a:active{
+    color: RGB(140,140,140);
+    text-decoration: none;
+}
+
+/*회원가입 화면*/
+.signup-content{
+text-align:left;
+width:20em;
+margin-right:auto;
+margin-left:auto;
+   color:#5D5D5D;
+   font-size: 1.3em;
+
+}
+
+
+.signup-content .field input{
+    width:20em;
+}
+
+.signup-content .field label{
+    font-size:0.8em;
+    letter-spacing: 2px;
+}
+.signup-content .field em{
+    font-size:0.6em;
+
+}
+
+.signup-login a:link{
+    color: RGB(93,93,93);
+    text-decoration: none;
+
+}
+.signup-login a:visited{
+    color: RGB(93,93,93);
+    text-decoration: none;
+
+}
+.signup-login a:hover{
+    color: RGB(140,140,140);
+    text-decoration: none;
+
+}
+.signup-login a:active{
+    color: RGB(140,140,140);
+    text-decoration: none;
+}
+
+/*로그인 페이지*/
+.login-content{
+    width:28em;
+        margin-left:auto;
+    margin-right:auto;
+}
+.login-content .field{
+    text-align:left;
+}
+.login-content .field .form-control{
+    width:25em;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+
+
+
+.edit-content{
+    width:50em;
+}
+
+/*about*/
+.about-content{
+    letter-spacing: 2px;
+}
+.about{
+    color: #5D5D5D;
+}

@@ -1,0 +1,181 @@
+<html>
+    <head>
+        <title>HOME</title>
+    </head>
+  
+    <body>
+              <div class="container col-9">
+                  <div>
+            </div>
+            <!--이미지 슬라이드-->
+            <!--<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner slideImage" role="listbox">
+                <div class="carousel-item active linkImg">
+                  <img class="d-block img-fluid" src="../assets/1.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item linkImg">
+                  <img class="d-block img-fluid" src="../assets/2.jpg" alt="Second slide">
+                </div>
+                <div class="carousel-item linkImg">
+                  <img class="d-block img-fluid" src="http://via.placeholder.com/950x600" alt="Third slide">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div> -->
+            
+            <br>
+           
+           
+            <!--팁게시판 좋아요 순위-->
+            <div class="cardWrapper">
+            <a href='/tipposts/index'>    <h5 id="h5Style">| 팁게시판 실시간 인기글 |</h5> </a>
+                <% @tippostslike.each do |t|%>
+                <div class="modal-best" data-toggle="modal" data-target="#t<%=t.id%>">
+                    <div class="card col-3">
+                        <img class="card-img-top" src="<%=t.image.url %>" alt="Card image cap" onerror=this.src="../assets/10.jpg">
+                        <div class="card-block">
+                                <p class="card-title"><%=t.category.name%> | <%=t.title%></p>
+                                <hr>
+                                <div class="cardContent">
+                                    <img src="<%=t.user.avatar.url%>" class="avatarImg" onerror=this.src="../assets/10.jpg">
+                                    <p class="card-text"> <%=t.user.name%><br>LIKE&hearts;<%=t.upcount%></p>
+                                </div>  
+                        </div>
+                    </div>
+                </div>
+                 <!--팁게시판 알림창-->       
+                <div class="modal fade" id="t<%=t.id%>" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <% unless t.image.nil?%>
+                                <img src="<%=t.image.url %>" class="modal-image" onerror=this.src="../assets/10.jpg">
+                            <%end%>
+                            <p style="font-size:0.7em;"> LIKE&hearts;<%=t.upcount%> </p>
+                            
+                           
+                            <div class = "modal-profile">
+                                <img src="<%=t.user.avatar.url%>" class="avatarImg" onerror=this.src="../assets/10.jpg">
+                                <p><%=t.user.name%></p>
+                            </div>
+                            <div class="profile-wrapper">
+                                
+                                <p class ="modal-title"><%=t.category.name%> | <%= t.title%></p>
+                                <p class="modal-contentarea"><%= t.content%></p>
+                                
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            
+                <% end %>
+            </div>
+            
+            <!--자유게시판 좋아요 순위-->
+            <div class="cardWrapper">
+                <a href ='/communities/index'> <h5 id="h5Style">| 자유 게시판 실시간 인기글 |</h5> </a>
+                <% @communitieslike.each do |c|%>
+                <div class="modal-best" data-toggle="modal" data-target="#c<%=c.id%>">
+                    
+                        <div class="card col-3">
+                            <img class="card-img-top" src="<%=c.image.url %>" alt="../assets/3.jpg" onerror=this.src="../assets/10.jpg">
+                            <div class="card-block">
+                                <p class="card-title"><%=c.title%></p>
+                                <hr>
+                                <div class="cardContent">
+                                    <img src="<%=c.user.avatar.url%>" class="avatarImg" onerror=this.src="../assets/10.jpg"> 
+                                    <p class="card-text"><%=c.user.name%><br>LIKE&hearts;<%=c.upcount%></p>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                   <!--자유게시판 알림창-->       
+                <div class="modal fade" id="c<%=c.id%>" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <% unless c.image.nil?%>
+                                <img src="<%=c.image.url %>" class="modal-image" onerror=this.src="../assets/10.jpg">
+                            <%end%>
+                            <p style="font-size:0.7em;"> LIKE&hearts;<%=c.upcount%> </p>
+                            
+                            <div class = "modal-profile">
+                                <img src="<%=c.user.avatar.url%>" class="avatarImg" onerror=this.src="../assets/10.jpg">
+                                <p><%=c.user.name%></p>
+                            </div>
+                            <div class="profile-wrapper">
+                                
+                                <p class ="modal-title"><%= c.title%></p>
+                                <p class="modal-contentarea"><%= c.content%></p>
+                                
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            
+                <% end %>
+            </div>
+                
+          <!--알바생 좋아요 순위-->
+            <div class="cardWrapper">
+                <a href = '/albas/index'> <h5 id="h5Style">| 알바생 게시판 실시간 인기글 |</h5> </a>
+                <% @albaslike.each do |a|%>
+                 <div class="modal-best" data-toggle="modal" data-target="#a<%=a.id%>">
+                        <div class="card col-3">
+                            <% unless a.image.nil?%>
+                            <img class="card-img-top" src="<%=a.image.url %>" alt="Card image cap" onerror=this.src="../assets/10.jpg">
+                            <%end%>
+                            <div class="card-block">
+                                <%=a.title%>
+                                <hr>
+                                <div class="cardContent">
+                                    <img src="<%=a.user.avatar.url%>" class="avatarImg" onerror=this.src="../assets/10.jpg">
+                                    <p class="card-text"><%=a.user.name%><br>LIKE&hearts;<%=a.upcount%></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+              
+                <!--알바생 알림창-->       
+                <div class="modal fade" id="a<%=a.id%>" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        
+                        <div class="modal-content">  
+                        <% unless a.image.nil?%>
+                            <img src="<%=a.image.url %>" class="modal-image" onerror=this.src="../assets/10.jpg">
+                            
+                        <%end%>
+                        <p style="font-size:0.7em; "> LIKE&hearts;<%=a.upcount%> </p>
+                            
+                            <div class = "modal-profile">
+                                <img src="<%=a.user.avatar.url%>" class="avatarImg" onerror=this.src="../assets/10.jpg">
+                                <p><%=a.user.name%></p>
+                            </div>
+                            
+                            <div class="profile-wrapper">
+                                
+                                <p class ="modal-title"><%= a.title%></p>
+                                <p class="modal-contentarea"><%= a.content%></p>
+                                
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                 <% end %>
+            </div>
+
+
+            
+            
+        </div>
+    </body>
+</html>

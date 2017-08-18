@@ -1,0 +1,59 @@
+<html>
+    <head>
+      <title>Sign up</title>
+    </head>
+  
+    <body>
+        <div class="container col-9">
+          <div class="index-content">
+          <h3>Sign up</h3>
+          </div>
+          <hr>
+          <br>
+          <div class="signup-content">
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <label for="user_email" style="display:inline">Email</label>
+    <input style="display:inline" autofocus="autofocus" type="email" value="" name="user[email]" class="form-control" id="user_email">
+  </div>
+  <div class="field">
+    <label for="user_name" style="display:inline">Name</label>
+    <input autofocus="autofocus" type="text" name="user[name]" class="form-control" id="user_name" style="display:inline">
+  </div>
+
+  <div class="field">
+    <label for="user_password" style="display:inline">Password</label>
+    <input autocomplete="off" type="password" name="user[password]" class="form-control" id="user_password" style="display:inline">
+    <br>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+  </div>
+
+  <div class="field">
+   <label for="user_password_confirmation" style="display:inline;">Password confirmation</label>
+    <input autocomplete="off" type="password" name="user[password_confirmation]" class="form-control" id="user_password_confirmation" style="display:inline">
+  </div>
+  <div class="field">
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+  </div>
+</div>
+
+  <div class="actions">
+    <input type="submit" class="btn btn-outline-secondary" name="commit" value="Sign up">
+  </div>
+<% end %>
+
+<br>
+<div class="signup-login">
+<%= render "devise/shared/links" %>
+</div>
+        
+        </div>
+    </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  <!--검색-->
+  <script src="<%= asset_path 'search.js' %>"></script>
+  <link rel="stylesheet" href="<%= asset_path 'search.scss' %>">
+  <!--메뉴-->
+  <link rel="stylesheet" href="<%= asset_path 'more.css' %>">
+  <!--modal알림창-->
+  <script src="<%= asset_path 'modal.js' %>"></script>
+  <!--etc-->
+  <script src="<%= asset_path 'heart.js' %>"></script>
+  <link rel="stylesheet" href="<%= asset_path 'comment.scss' %>">
+  
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+      <div class="container col-9">
+            <!-- 헤더 로고 -->
+            <div class="header">
+                <a href="/"><%= image_tag("giso.jpg", :alt => "giso") %></a>
+                
+                <!--<h1>지소✨</h1><-->
+
+            </div>
+            
+            <!-- 로그인 -->
+            <% if user_signed_in? %>
+            <div class="headerRight">
+                <p>반갑습니다, <%= current_user.name %>님!</p>
+			
+                <ul>
+                    <li><a href="/home/mypage">MY POST</a></li>
+                    <li><a href = "/users/edit">MY PAGE</a></li>
+                    <li><a href="/users/sign_out" data-method="delete">LOGOUT</a></li>
+                </ul>
+                
+                <!-- 검색 -->
+                <%= form_tag(home_search_path, :method => "get", id: "search-form") do %>
+                <input type="text" class="form-control form-control-sm" name="search" id="search" placeholder="제목 또는 내용 검색" style="width:12em; display:inline">
+                <button type="submit" class="btn btn-secondary btn-sm">search</button>
+                <% end %>
+            </div>
+                        
+            <!-- 로그아웃 -->
+            <% else %>
+            <div class="headerRight">
+                <ul>
+                    <li><a href="/users/sign_in">로그인</a></li>
+                    
+                    <li><a href="/users/sign_up">회원가입</a></li>
+                </ul>
+            </div>
+            <% end %>
+            
+            <!-- 메뉴 -->
+            <nav class="flex-nav col-12">
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    <li><a href="/home/about">ABOUT</a></li>
+                    <li class="menu-item-has-children">
+                        <a style="color:#8b8b8b;">COMMUNITY∨</a>
+                        <ul class="subMenu">
+                            <li><a href="/communities/index">자유 게시판</a></li>
+                            <li><a href="/albas/index">알바생 게시판</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children"><a href="/tipposts/index">TIP+</a>
+                        <ul class="subMenu">
+                            <li><a href="/tipposts/category/2">카페</a></li>
+                            <li><a href="/tipposts/category/3">편의점</a></li>
+                            <li><a href="/tipposts/category/4">음식점</a></li>
+                            <li><a href="/tipposts/category/5">영화관</a></li>
+                            <li><a href="/tipposts/category/6">교육</a></li>
+                            <li><a href="/tipposts/category/1">기타</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/reveiws/index">REVIEW</a></li>
+	                <li><a href="/compliments/index">칭찬합시다</a></li>
+                    <li><a href="/brands/index">인증</a></li>
+                    
+                </ul>
+            </nav>
+    </div>  
+    <% flash.each do |name, msg| %>
+      <%= render 'flash', name: name, msg: msg %>
+    <% end %>
+<%= yield %>
+
+
+
+
+</body>
+</html>

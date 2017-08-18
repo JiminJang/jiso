@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>검색 결과</title>
+    </head>
+  
+    <body>
+        <div class="container col-9">
+
+<div class="index-content" >
+<h3>알바생게시판</h3>
+<% if @resultalba.present? %>
+<%@resultalba.each do |a|%>
+<ul>
+    <li>
+<a href="/albas/show/<%=a.id%>"><%=a.title%></a>
+</li>
+</ul>
+<br>
+<%end%>
+<%end%>
+<hr>
+<h3>팁게시판</h3>
+<% if @resulttippost.present? %>
+<%@resulttippost.each do |t|%>
+<ul>
+    <li>
+<a href="/tipposts/show/<%=t.id%>"><%=t.title%></a>
+</li>
+</ul>
+<br>
+<%end%>
+<%end%>
+<hr>
+<h3>자유게시판</h3>
+
+<% if @resultcommunity.present? %>
+<%@resultcommunity.each do |c|%>
+<ul>
+    <li>
+<a href="/communities/show/<%=c.id%>"><%=c.title%></a>
+</li>
+</ul>
+<br>
+<%end%>
+<%end%>
+</div>
+        </div>
+    </body>
+</html>

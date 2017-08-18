@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>REVIEW</title>
+        <!--별점-->
+        <link rel="stylesheet" href="<%= asset_path 'star.css' %>">
+ 	    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+        <!--preview_이미지.js-->
+        <script>
+            function readURL(input) {
+              if (input.files && input.files[0]) {
+                var reader = new FileReader();
+      
+                reader.onload = function (e) {
+                  $('#img_prev')
+                    .attr('src', e.target.result)
+                    .width(200)
+                    .height(200);
+                };
+      
+                reader.readAsDataURL(input.files[0]);
+              }
+            }
+        </script>
+    </head>
+  
+    <body>
+        <div class="container col-9">
+            <div class="index-content" >
+                <h3 style="text-align:left; color:#5D5D5D;">REVIEW 수정</h3>
+                <hr>
+                <div class="new-content" >
+                    <form action="/reviews/update/<%=@reviews.id %>" method="POST">
+                        <label for="titlearea" class="input-label">title</label>
+                        <input type="text" name="title"  class="form-control form-control-sm" id="titlearea" value="<%= @reviews.title %>"><br>
+                        <br>
+                        <br>
+                        <label for="contentarea" class="input-label">content</label>
+                        <textarea name="content" class="form-control" id="contentarea" rows="7"><%= @reviews.content %></textarea>
+                        <br>
+                        <div style="text-align:center;">
+                            <!-- 별점 -->
+                            <div class="stars" >
+                                <% 5.downto(1).each do |num| %>
+                                    <input class="star star-<%=num%>" id="star-<%=num%>" type="radio" name="star" value="<%=num%>"/>
+                                    <label class="star star-<%=num%>" for="star-<%=num%>"></label>
+                                <%end%>
+                            </div>
+                    <hr>
+                    <input type='file' name="pic" onchange="readURL(this);" >
+                            <p><img id="img_prev" src="#" alt="your image"/></p>
+                        </div>
+                    </div>
+                    <hr>
+                        <input type="submit" class="btn btn-secondary btn-sm" style="float:right;" value="수정하기">
+                    </form>
+                    <form action="/reviews/show/<%=@reviews.id %>" method="GET">
+                  <button type="submit" class="btn btn-secondary btn-sm" style="float:left;">list</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

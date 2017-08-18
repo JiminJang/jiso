@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>TIP</title>
+    </head>
+  
+    <body>
+        <div class="container col-9">
+<div class="index-content" >
+<h3 style="text-align:left; color:#5D5D5D;">TIP 게시판 수정하기</h3>
+<hr>
+            <div class="new-content" >
+<form action="/tipposts/update/<%=@tippost.id%>" method="POST">
+    <!--제목-->
+    <label for="titlearea" class="input-label">title</label>
+    <input type="text" class="form-control form-control-sm" id="titlearea"  name="title" value="<%= @tippost.title %>"><br>
+    <br><br>
+    <!--내용-->
+    <label for="contentarea" class="input-label">content</label>
+    <textarea name="content" class="form-control" id="contentarea tippost_content" rows="7"><%= @tippost.content %></textarea>
+    <br>
+
+    </div>
+    <hr>
+    <input type="submit" class="btn btn-secondary btn-sm" style="float:right;" value="수정하기">
+</form>
+<form action="/tipposts/show/<%=@tippost.id %>" method="GET">
+                <button type="submit" class="btn btn-secondary btn-sm" style="float:left;">list</button>
+              </form>
+</div>
+        </div>
+    </body>
+</html>

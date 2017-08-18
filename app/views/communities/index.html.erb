@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>자유 게시판</title>
+    </head>
+    <body>
+        <div class="container col-9">
+            <!-- index content -->
+            <div class="index-content">
+                <h3>자유 게시판</h3>
+                <h5>실시간 인기글</h5>
+                <hr>
+                <ol>
+                    <%@communitieslike.each do |p|%>
+                    <li style="margin-left:3em; ">
+                        <a href="/communities/show/<%=p.id%>" style="margin-left:3em;"><%=p.title%></a>
+                    </li>
+                    <%end%>
+                </ol>
+                
+                <hr>
+
+                <table style="width:100%; border-top: 1px solid #D8D8D8; border-bottom: 1px solid #D8D8D8;">
+                     <tr style="border-bottom: 1px solid #D8D8D8;">
+                         <th style="width:10%;">
+                             no.
+                         </th>
+                         <th style="width:50%;">
+                             title
+                         </th>
+                         <th style="width:13%;">
+                             writer
+                         </th>
+                         <th style="width:20%;">
+                             date
+                         </th>
+                         <th style="width:7%;">
+                             like
+                         </th>
+                     </tr>
+
+                    <% @communities.each do |p| %>
+                    <tr>
+                        <td class="no" style="text-align: center;">
+                            <%=p.id%>
+                        </td>
+                        <td>
+                            <a href="/communities/show/<%=p.id%>"><%= p.title %></a>
+                        </td>
+                        <td style="text-align: center;">
+                            <%=p.user.name%>
+                        </td>
+                        <td class="date" style="text-align: center;">
+                            <%=p.updated_at%>
+                        </td>
+                        <td class="like-count" style="text-align: center;">
+                             <%=p.upcount%>
+                         </td>
+                    </tr>
+                    <% end %>
+                </table>
+            <br>
+            <!--글쓰기 버튼-->
+            <form action="/communities/new" style="float:left;">
+                <button type="submit" class="btn btn-secondary btn-sm">write</button>
+            </form>
+            <!--pagination-->
+            <div class="pagination">
+                <%= will_paginate @communities %>
+            </div>
+            <br>
+
+
+
+            <!--검색-->
+            <div class="search">
+                <%= form_tag(communities_path, :method => "get", id: "search-form") do %>
+                <input type="text" class="form-control form-control-sm index-search" name="search" id="search" placeholder="제목 또는 내용 검색">
+                <button type="submit" class="btn btn-secondary btn-sm">search</button>
+                <% end %>
+            </div>
+
+            
+            </div>
+        </div>
+    </body>
+</html>
+

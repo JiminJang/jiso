@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>인증 게시판</title>
+        <!--preview_이미지.js-->
+      <script>
+            function readURL(input) {
+              if (input.files && input.files[0]) {
+                var reader = new FileReader();
+      
+                reader.onload = function (e) {
+                  $('#img_prev')
+                    .attr('src', e.target.result)
+                    .width(200)
+                    .height(200);
+                };
+      
+                reader.readAsDataURL(input.files[0]);
+              }
+            }
+      </script>
+    </head>
+  
+    <body>
+        <div class="container col-9">
+        <div class="index-content" >
+          <h3 style="text-align:left; color:#5D5D5D;">인증 게시판 글쓰기</h3>
+          <hr>
+          <div class="new-content" >
+            <form action="/brands/create" method="POST" enctype="multipart/form-data">
+                    <label for="titlearea" class="input-label">title</label>
+                <input type="text" name="title" class="form-control form-control-sm">
+                <br><br>
+                <label for="contentarea" class="input-label">content</label>
+                <textarea name="content" class="form-control" id="contentarea tippost_content" rows="7"></textarea>
+                <br>
+                <hr>
+                <div style="text-align:center;">
+                <input type="file" name= "pic" onchange="readURL(this);" >
+                <p><img id="img_prev" src="#" alt="your image" /></p>
+                </div>
+                </div>
+                <hr>
+              <button type="submit" class="btn btn-secondary btn-sm" style="float:right;">등록</button>
+              </form>
+               <form action="/brands/index" method="GET">
+               <button type="submit" class="btn btn-secondary btn-sm" style="float:left;">list</button>
+            </form>
+</div>
+        </div>
+    </body>
+</html>

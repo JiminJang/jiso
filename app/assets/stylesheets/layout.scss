@@ -1,0 +1,162 @@
+// html, body {
+//   margin:0;
+//   padding:0;
+//   height:100%;
+
+//   // font-family: 'Nanum Gothic', Helvetica, Arial, sans-serif;
+
+//   #wrapper {
+//     min-height:100%;
+//     position:relative;
+//   }
+
+//   #container {
+//     margin-top: 48px;
+//     // @media (min-width: 768px) { margin-top: 0px; }
+//     min-height: 640px;
+//     // padding-bottom: 60px;   /* Height of the footer element */
+//   }
+
+//   header.header {
+//     .navbar-header {
+//       float: none;
+//       a.navbar-brand {
+//         font-size: 24px;
+//         color: steelblue;
+//       }
+
+//       .navbar-toggle {
+//         display: block;
+//       }
+
+//       a.navbar-toggle {
+//         color: #9d9d9d;
+//         border: none;
+//         background: none;
+//         &:hover, &:focus {
+//           // color: white;
+//           background: none;
+//           text-decoration: none;
+//         }
+//       }
+//     }
+
+//     ul.navbar-collapse {
+//       border-top: 1px solid transparent;
+//       box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+//     }
+
+//     ul.navbar-collapse.collapse {
+//     display: none !important;
+//     }
+
+//     ul.navbar-collapse.collapse.in {
+//       display: block !important;
+//     }
+
+//     ul.navbar-nav {
+//       float: none !important;
+//       li {
+//         float: none;
+//       }
+//     }
+//   }
+
+//   footer.footer {
+//     // @media (min-width: 992px) { margin: 72px 0 0 0; }
+//     margin: 72px 0 0 0;
+//     padding: 12px 0;
+//     // min-height: 320px;
+//     color: gray;
+//     a {
+//       color: gray;
+//       &:hover { color: white; }
+//     }
+//   }
+// }
+
+
+// .flash {
+//   position: fixed;
+//   top: 0px;
+//   width: 100%;
+//   min-height: 55px;
+//   text-align: center;
+//   z-index: 2147483647;
+
+//   // background-color: orange;
+
+//   span {
+//     display: inline-block;
+//     margin-top: 12px;
+//     font-size: 18px;
+//     line-height: 27px;
+//     color: gold;  // white; // #9d9d9d;
+//   }
+
+//   a.flash_close {
+//     display: inline-block;
+//     margin-top: 14px;
+//     font-size: 18px;
+//     line-height: 27px;
+//     color: #9d9d9d;
+//   }
+// }
+
+// .flash.notice { background: #212121; }
+
+// .flash.warning {
+//   background: orange;
+//   span { color: white; }
+//   a.flash_close { color: white; }
+// }
+
+// .apple_pagination {
+//   //  background: #f1f1f1;
+//   //  border: 1px solid #e5e5e5;
+//   text-align: center;
+//   padding: 1em;
+//   cursor: default;
+
+//   span, a {
+//     display: inline-block;
+//     width: 24px;
+//     height: 24px;
+//     font-size: 14px;
+//     line-height: 24px;
+//   }
+
+//   a {
+//     text-decoration: none;
+//     color: black;
+//     &:hover, &:focus { text-decoration: underline; }
+//   }
+
+//   .current {
+//     display: inline-block;
+//     width: 24px;  // 1.6em;
+//     height: 24px; // 1.6em;
+//     font-size: 14px;
+//     line-height: 24px;
+//     background-color: #4dbce9; // #bebebe;
+//     @include border-radius(12px);
+//   }
+
+//   .disabled { color: #aaa; }
+// }
+
+// .jumbotron.welcome {
+//   background-color: darken(#428bca, 6.5%);
+//   margin: 0;
+// }
+
+// div.welcome.section {
+//   background-color: darken(#428bca, 6.5%);
+//   margin: 0;
+// }
+
+// div.image.section {
+//   background-color: darken(#428bca, 6.5%);
+//   // background: url("/assets/banner.jpg") no-repeat center;
+//   margin: 0;
+// }

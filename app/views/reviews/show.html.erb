@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>REVIEW</title>
+    </head>
+  
+    <body>
+        <div class="container col-9">
+            <!-- 내용 -->
+            <div class= "show-content">
+                <h3>REVIEW 게시판</h3>
+                    <p class="show-top1">subject &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @reviews.title %></p>
+                    <p class="show-top2">writer &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= @reviews.user.name %></p>
+                    <p class="show-top2">좋아요 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=@reviews.upcount%></p>
+                    <p class="show-top2">별점 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%=@reviews.star%></p>
+ 
+                    <img src="<%=@reviews.image.url %>" alt="">
+                    <p style="margin-top:2em; margin-bottom:5em;"><%= @reviews.content %></p>
+                    <!--좋아요-->
+                    <% if current_user.is_like?(@reviews)%>
+                    <form action="/reviews/dislike" method="POST">
+                        <input type="hidden" value="<%=@reviews.id%>" name="post_id">
+                         <button class="btn btn-outline-secondary">♡UNLIKE</button>
+                    </form>
+                    <%else%>
+                    <form action="/reviews/like" method="POST">
+                        <input type="hidden" value="<%=@reviews.id%>" name="post_id">
+                        <button class="btn btn-outline-danger">&hearts;LIKE</button>
+                    </form>
+                    <%end%>
+                    </div>
+                    <div class="show-bottom">
+                        <form action="/reviews/index" method="GET">
+                            <button type="submit" class="btn btn-secondary btn-sm" style="float:left;">list</button>
+                        </form>
+                        <% if user_signed_in? %>
+                            <% if current_user.can_update?(@reviews)%>  
+                                <form action="/reviews/edit/<%=@reviews.id%>" method="GET">
+                                    <button type="submit" class="btn btn-secondary btn-sm"  style="float:right;"formmethod="POST" formaction="/reviews/destroy/<%=@reviews.id%>" data-confirm="글을 삭제합니다">delete</button>
+                                    <button type="submit" class="btn btn-secondary btn-sm"  style="float:right;">edit</button>
+                                </form>
+                            <%end%>
+                        <%end%>
+                    </div>
+                    <br>
+                    <hr>
+
+            <!-- 댓글 -->
+
+            <form action = '/reviews/show/<%= @reviews.id %>/reviewcoms/create' method = "POST">
+                <input type = 'text' class="form-control" name = "input_comment" placeholder="comment" style="width:30em; height:1.8em; display:inline;">
+                <button type="submit" class="btn btn-secondary btn-sm">등록</button>
+            </form>
+    
+            <div class="show-comment">
+                <% @reviewcoms.each do |comment| %>
+                <img src="<%=comment.user.avatar.url%>" class="avatarImg">
+                <p style="display:inline; color:#5D5D5D;margin-right:1.5em;"><%=comment.user.name%></p>
+                <div class="comment"style="display:inline;">
+                    <p style="font-size:1em;"><%= comment.content %></p>
+                </div>
+                <% if user_signed_in? %>
+                    <% if current_user.can_update?(comment)%>
+                        <form action = '/reviews/show/<%= @reviews.id %>/reviewcoms/destroy/<%= comment.id %>' method = "POST" style="display:inline;"> 
+                            <button type="submit" class="btn btn-secondary btn-sm" data-confirm="댓글을 삭제합니다" >삭제</button>
+                        </form>
+                    <%end%>
+                <% end %>
+                <br><br>
+            <% end %>
+            </div>
+        </div>
+    </body>
+</html>
+

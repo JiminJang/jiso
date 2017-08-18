@@ -1,0 +1,15 @@
+<hr>
+<form action="/tipcomments/create" method="POST">
+    <input type="hidden" value="<%=@tippost.id%>" name="post_id">
+    <textarea name="input_comment" placeholder="내용"></textarea>
+    <input type="submit" value="댓글달기">
+</form>
+<h4>댓글목록</h4>
+<% @tipcomments.each do |c| %>
+    <p>
+    - <%=c.content%>
+    <form action="/tipcomments/destroy/<%=c.id%>" method="POST">
+        <button type="submit">삭제</button>
+    </form>
+    </p>
+<% end %>

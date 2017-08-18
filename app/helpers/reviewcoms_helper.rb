@@ -1,0 +1,2 @@
+module ReviewcomsHelper
+end
