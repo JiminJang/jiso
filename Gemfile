@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
 #헤로쿠
-gem 'pg', group: :development
+gem 'pg', group: :production
 gem 'rails_12factor', group: :production
-gem 'sqlite3', group: :production
+gem 'sqlite3', group: :development
 
 #크롤링
 gem 'nokogiri'
