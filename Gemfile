@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'rails_12factor'
+ruby '2.3.4'
 #크롤링
 gem 'nokogiri'
 #권한
