@@ -1,10 +1,5 @@
 source 'https://rubygems.org'
 
-#헤로쿠
-gem 'pg', group: :production
-gem 'rails_12factor', group: :production
-gem 'sqlite3', group: :development
-
 #크롤링
 gem 'nokogiri'
 #권한
@@ -22,7 +17,7 @@ gem 'will_paginate', '~> 3.1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -54,6 +49,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'sqlite3'
 end
 
 group :development do
@@ -65,3 +61,9 @@ group :development do
   gem 'spring'
 end
 
+
+
+# group :production do
+#   gem 'pg'
+# end
+gem 'pg'
